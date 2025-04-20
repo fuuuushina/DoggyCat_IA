@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détection Chien / Chat</title>
+</head>
+<body>
+    <h1>Détection Chien / Chat 🐶🐱</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Résultat : {{ prediction }}</h2>
+        <img src="{{ url_for('static', filename=image_url) }}" alt="Image" width="300">
+    {% endif %}
+</body>
+</html>
